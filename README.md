@@ -75,3 +75,43 @@ class demo extends React.Component{
 }
 export default demo
 ```
+
+## 高阶函数-函数柯里化
+
+如果一个函数满足下面两个规范任何一个就是高阶函数
+1、若A函数，接收的参数是一个函数，那么A就可以称为高阶函数
+2、若A函数，调用的返回值依然是一个函数，那么A就可以称为高阶函数
+
+常见的高阶函数：promise、setTimeout、arr.map()
+
+```js
+import React from 'react'
+
+class demo extends React.Component{
+  
+  saveFormData = (dataType) => {
+    return (e) => {
+      this.setState({[dataType]: e.target.value})
+    }
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const {username, password} = this
+    console.log(`username: ${username.value},password: ${password.value}`)
+  }
+
+  render() {
+    return(
+      <form onSubmit={this.handleSubmit}>
+        用户名<input onChange={this.saveFormData('username')} type='text' name='username' />
+        密码<input onChange={this.saveFormData('password')} type='password' name='password' />
+        <button>登录</button>
+      </form>
+    )
+  }
+}
+export default demo
+```
+
+函数的柯里化：通过函数调用继续返回函数的方式，实现多次接收参数最后统一处理的函数编码形式
