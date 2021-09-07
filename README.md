@@ -115,3 +115,43 @@ export default demo
 ```
 
 函数的柯里化：通过函数调用继续返回函数的方式，实现多次接收参数最后统一处理的函数编码形式
+
+## 生命周期
+
+![生命周期](./README_IMG/react_shenminzhouqi.webp)
+
+初始化阶段：由ReactDom.render()触发--初次渲染
+
+1. construct()
+2. getDerivedStateFromProps
+3. render()
+4. componentDidMount()
+
+根新阶段：由组件内部this.setState()或父组件重新render()
+
+1. getDerivedStateFromProps
+2. shouldCompinentUpdate()
+3. render()
+4. getSnapshostBeforeUpdate
+5. componentDidUpdate()
+
+卸载组件：由ReactDom.unmountComponentAtNode()触发
+
+1. compinentWillUnmount()
+
+tip: 
+
+
+1. 挂载时componentDidMount
+
+组件第一次渲染完成，此时dom节点已经生成，可以在这里调用ajax请求，返回数据setState后组件会重新渲染
+
+2. 更新时componentDidUpdate
+
+组件更新完毕后，react只会在第一次初始化成功会进入componentDidmount,之后每次重新渲染后都会进入这个生命周期，这里可以拿到prevProps和prevState，即更新前的props和state。
+
+3. 卸载时componentDidUnmount
+
+在此处完成组件的卸载和数据的销毁。
+
+clear你在组建中所有的setTimeout,setInterval移除所有组建中的监听 removeEventListener
