@@ -11,6 +11,7 @@ import ThemeContext from './components/themeContext/index'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
+  // React.StrictMode和es5的严格模式不同，这是检查react用法是否符合最新的，比如有些弃用的api他就会提出警告
   <React.StrictMode>
     <HelloWord />
     <Card

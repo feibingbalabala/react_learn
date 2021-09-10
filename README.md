@@ -168,3 +168,33 @@ clear你在组建中所有的setTimeout,setInterval移除所有组建中的监�
 1. 若对数据进行：逆序添加、逆序删除等破坏顺序的操作，会产生没有必要的真实dom更新更新，界面效果没有问题，但效率低。
 2. 如果结构中包括输入类的dom：会产生错误DOM更新，界面有问题。
 3. 如果不存在对数据的逆序添加、逆序删除等破坏顺序的操作，仅用于渲染列表展示，用index就没有任何问题。
+
+## 脚手架
+
+```js
+ReactDOM.render(
+  // React.StrictMode和es5的严格模式不同，这是检查react用法是否符合最新的，比如有些弃用的api他就会提出警告
+  <React.StrictMode>
+    <app />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+```
+
+### src
+
+reportWebVitals.js: 是性能测试的js用的是web-vitals这个库
+
+setupTests.js: 是测试用的js用的是jest-dom这个库
+
+### public
+
+index.html: 主页面
+
+manifest.json: 应用加壳的配置文件
+
+robots.txt: 爬虫协议文件
+
+export default: 默认暴露
+
+export: 分别暴露
