@@ -198,3 +198,24 @@ robots.txt: 爬虫协议文件
 export default: 默认暴露
 
 export: 分别暴露
+
+### 样式的模块化
+
+```css
+/* demo.module.css */
+.title {
+  color: red;
+}
+```
+
+```js
+// demo.js
+import React from 'react'
+import demo from './demo.module.css'
+
+export default class Demo extends React.Component {
+  render() {
+    return <div className={demo.title}>demo</div>
+  }
+}
+```
