@@ -8,6 +8,7 @@ import Clock from './components/clock/clock'
 import Context from './components/Context/Context'
 import Comment from './components/comment/index'
 import ThemeContext from './components/themeContext/index'
+import TodoList from './components/TodoList/Index';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -25,6 +26,7 @@ ReactDOM.render(
     <Context />
     <Comment />
     <ThemeContext />
+    <TodoList />
   </React.StrictMode>,
   document.getElementById('root')
 );
