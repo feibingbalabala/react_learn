@@ -24,11 +24,20 @@ class TodoList extends React.Component {
             }
         ]
     }
+    addTodo = (todoObj) => {
+        const { todos } = this.state
+        const newTodos = [todoObj, ...todos]
+        this.setState({
+            todos: newTodos
+        })
+    }
     render() {
         return (
             <div className="todo-box">
                 <div className="todo-wrap">
-                    <Header />
+                    <Header
+                        addTodo={this.addTodo}
+                    />
                     <List  todos ={this.state.todos} />
                     <Footer />
                 </div>
