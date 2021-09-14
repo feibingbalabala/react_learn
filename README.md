@@ -224,4 +224,4 @@ export default class Demo extends React.Component {
 
 defaultChecked：默认选择
 
-增加prop-types：对prop进行类型的限制
+增加prop-types：对prop进行类型的限制，需要下载（prop-types）

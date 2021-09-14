@@ -18,6 +18,12 @@ class Item extends React.Component {
         }
     }
 
+    handleDelete = (id) => {
+        if (window.confirm('确认删除?')) {
+            this.props.deleteTodo(id)
+        }
+    }
+
     render() {
         const {id, name, done} = this.props
         return (
@@ -41,6 +47,7 @@ class Item extends React.Component {
                     style={{
                         display: this.state.mouse ? '' : 'none'
                     }}
+                    onClick={() => { this.handleDelete(id) }}
                 >
                     删除
                 </button>

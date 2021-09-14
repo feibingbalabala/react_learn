@@ -46,6 +46,16 @@ class TodoList extends React.Component {
         })
     }
 
+    deleteTodo = (id) => {
+        const { todos } = this.state
+        const newTodos = todos.filter((todoObj) => {
+            return todoObj.id !== id
+        })
+        this.setState({
+            todos: newTodos
+        })
+    }
+
     render() {
         return (
             <div className="todo-box">
@@ -56,6 +66,7 @@ class TodoList extends React.Component {
                     <List 
                         todos={this.state.todos}
                         updateTodo={this.updateTodo}
+                        deleteTodo={this.deleteTodo}
                     />
                     <Footer />
                 </div>
