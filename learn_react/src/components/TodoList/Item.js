@@ -3,6 +3,7 @@ class Item extends React.Component {
     state = {
         mouse: false
     }
+
     handleMouse = (flag) => {
         return () => {
             this.setState({
@@ -10,6 +11,13 @@ class Item extends React.Component {
             })
         }
     }
+
+    handleCheck = (id) => {
+        return (e) => {
+            this.props.updateTodo(id, e.target.checked)
+        }
+    }
+
     render() {
         const {id, name, done} = this.props
         return (
@@ -21,7 +29,11 @@ class Item extends React.Component {
                 onMouseLeave={this.handleMouse(false)}
             >
                 <label>
-                    <input type="checkbox" defaultChecked={done} />
+                    <input
+                        type="checkbox"
+                        checked={done}
+                        onChange={this.handleCheck(id)}
+                    />
                     <span>{ name }</span>
                 </label>
                 <button

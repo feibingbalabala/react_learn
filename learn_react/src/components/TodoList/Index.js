@@ -31,6 +31,21 @@ class TodoList extends React.Component {
             todos: newTodos
         })
     }
+
+    updateTodo = (id, done) => {
+        const { todos } = this.state
+        const newTodos = todos.map((todoObj) => {
+            if (todoObj.id === id) {
+                return {...todoObj, done}
+            } else {
+                return todoObj
+            }
+        })
+        this.setState({
+            todos: newTodos
+        })
+    }
+
     render() {
         return (
             <div className="todo-box">
@@ -38,7 +53,10 @@ class TodoList extends React.Component {
                     <Header
                         addTodo={this.addTodo}
                     />
-                    <List  todos ={this.state.todos} />
+                    <List 
+                        todos={this.state.todos}
+                        updateTodo={this.updateTodo}
+                    />
                     <Footer />
                 </div>
             </div>
