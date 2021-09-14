@@ -222,3 +222,4 @@ export default class Demo extends React.Component {
 
 ## todoList组件
 
+defaultChecked：默认选择

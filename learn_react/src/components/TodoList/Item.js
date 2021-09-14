@@ -1,11 +1,12 @@
 import React from "react";
 class Item extends React.Component {
     render() {
+        const {id, name, done} = this.props
         return (
             <li>
                 <label>
-                    <input type="checkbox" />
-                    <span>xxx</span>
+                    <input type="checkbox" checked={done} />
+                    <span>{ name }</span>
                 </label>
                 <button
                     className="btn btn-danger"
