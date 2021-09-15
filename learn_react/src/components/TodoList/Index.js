@@ -56,6 +56,24 @@ class TodoList extends React.Component {
         })
     }
 
+    checkAllTodo = (done) => {
+        const { todos } = this.state
+        const newTodos = todos.map((todoObj) => {
+            return {...todoObj, done}
+        })
+        this.setState({
+            todos: newTodos
+        })
+    }
+
+    handleClearAllDone = () => {
+        const { todos } = this.state
+        const newTodos = todos.filter((item) => !item.done)
+        this.setState({
+            todos: newTodos
+        })
+    }
+
     render() {
         return (
             <div className="todo-box">
@@ -68,7 +86,11 @@ class TodoList extends React.Component {
                         updateTodo={this.updateTodo}
                         deleteTodo={this.deleteTodo}
                     />
-                    <Footer />
+                    <Footer
+                        todos={this.state.todos}
+                        checkAllTodo={this.checkAllTodo}
+                        handleClearAllDone={this.handleClearAllDone}
+                    />
                 </div>
             </div>
         )

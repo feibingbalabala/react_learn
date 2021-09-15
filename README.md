@@ -222,6 +222,315 @@ export default class Demo extends React.Component {
 
 ## todoList组件
 
-defaultChecked：默认选择
+defaultChecked：默认选择，如果用checked则需要用onChange事件修改checkbox的值
 
 增加prop-types：对prop进行类型的限制，需要下载（prop-types）
+
+```js
+// index.js
+import React from "react";
+import Header from "./Header";
+import List from "./List";
+import Footer from "./Footer";
+import './index.css'
+
+class TodoList extends React.Component {
+    state = {
+        todos: [
+            {
+                id: '001',
+                name: '吃饭',
+                done: true
+            },
+            {
+                id: '002',
+                name: '睡觉',
+                done: true
+            },
+            {
+                id: '003',
+                name: '写作业',
+                done: false
+            }
+        ]
+    }
+    addTodo = (todoObj) => {
+        const { todos } = this.state
+        const newTodos = [todoObj, ...todos]
+        this.setState({
+            todos: newTodos
+        })
+    }
+
+    updateTodo = (id, done) => {
+        const { todos } = this.state
+        const newTodos = todos.map((todoObj) => {
+            if (todoObj.id === id) {
+                return {...todoObj, done}
+            } else {
+                return todoObj
+            }
+        })
+        this.setState({
+            todos: newTodos
+        })
+    }
+
+    deleteTodo = (id) => {
+        const { todos } = this.state
+        const newTodos = todos.filter((todoObj) => {
+            return todoObj.id !== id
+        })
+        this.setState({
+            todos: newTodos
+        })
+    }
+
+    checkAllTodo = (done) => {
+        const { todos } = this.state
+        const newTodos = todos.map((todoObj) => {
+            return {...todoObj, done}
+        })
+        this.setState({
+            todos: newTodos
+        })
+    }
+
+    handleClearAllDone = () => {
+        const { todos } = this.state
+        const newTodos = todos.filter((item) => !item.done)
+        this.setState({
+            todos: newTodos
+        })
+    }
+
+    render() {
+        return (
+            <div className="todo-box">
+                <div className="todo-wrap">
+                    <Header
+                        addTodo={this.addTodo}
+                    />
+                    <List 
+                        todos={this.state.todos}
+                        updateTodo={this.updateTodo}
+                        deleteTodo={this.deleteTodo}
+                    />
+                    <Footer
+                        todos={this.state.todos}
+                        checkAllTodo={this.checkAllTodo}
+                        handleClearAllDone={this.handleClearAllDone}
+                    />
+                </div>
+            </div>
+        )
+    }
+}
+export default TodoList
+
+```
+
+```js
+// Header.js
+import React from "react";
+
+import PropTypes from 'prop-types'
+class Header extends React.Component {
+
+    static propTypes = {
+        addTodo: PropTypes.func.isRequired
+    }
+
+    handleKeyup = (e) => {
+        if (e.keyCode !== 13) {
+            return
+        }
+        if (e.target.value.trim() === '') {
+            alert('输入不能为空')
+            return
+        }
+        const todoObj = {
+            id: new Date().getTime(),
+            name: e.target.value,
+            done: false
+        }
+        this.props.addTodo(todoObj)
+        e.target.value = ''
+    }
+
+    render() {
+        return (
+            <div className="todo-header">
+                <input
+                    onKeyUp={this.handleKeyup}
+                    type="text"
+                    placeholder="请输入你的任务名称，按回车健确定"
+                />
+            </div>
+        )
+    }   
+}
+export default Header
+```
+
+```js
+// list.js
+import React from "react";
+import PropTypes from 'prop-types'
+import Item from "./Item";
+class List extends React.Component {
+    
+    static propTypes = {
+        todos: PropTypes.array.isRequired,
+        updateTodo: PropTypes.func.isRequired,
+        deleteTodo: PropTypes.func.isRequired
+    }
+
+    render() {
+        const { todos, updateTodo, deleteTodo } = this.props
+        return (
+            <ul className="todo-main">
+                {
+                    todos.map((todo) => {
+                        return <Item
+                            key={todo.id }
+                            {...todo}
+                            updateTodo={updateTodo}
+                            deleteTodo={deleteTodo}
+                        />
+                    })
+                }
+            </ul>
+        )
+    }
+}
+export default List
+
+```
+
+```js
+// item.js
+import React from "react";
+class Item extends React.Component {
+    state = {
+        mouse: false
+    }
+
+    handleMouse = (flag) => {
+        return () => {
+            this.setState({
+                mouse: flag
+            })
+        }
+    }
+
+    handleCheck = (id) => {
+        return (e) => {
+            this.props.updateTodo(id, e.target.checked)
+        }
+    }
+
+    handleDelete = (id) => {
+        if (window.confirm('确认删除?')) {
+            this.props.deleteTodo(id)
+        }
+    }
+
+    render() {
+        const {id, name, done} = this.props
+        return (
+            <li
+                style={{
+                    backgroundColor: this.state.mouse ? '#ddd' : ''
+                }}
+                onMouseEnter={this.handleMouse(true)}
+                onMouseLeave={this.handleMouse(false)}
+            >
+                <label>
+                    <input
+                        type="checkbox"
+                        checked={done}
+                        onChange={this.handleCheck(id)}
+                    />
+                    <span>{ name }</span>
+                </label>
+                <button
+                    className="btn btn-danger"
+                    style={{
+                        display: this.state.mouse ? '' : 'none'
+                    }}
+                    onClick={() => { this.handleDelete(id) }}
+                >
+                    删除
+                </button>
+            </li>
+        )
+    }
+}
+export default Item
+
+```
+
+```js
+import React from "react";
+class Footer extends React.Component {
+    
+    checkAllTodo = (e) => {
+        this.props.checkAllTodo(e.target.checked)
+    }
+
+    handleClearAllDone = () => {
+        if (window.confirm('确认清除已经完成的任务')) {
+            this.props.handleClearAllDone()
+        }
+    }
+    
+    render() {
+        const { todos } = this.props
+
+        const doneCount = todos.reduce((pre, current) => {
+            if (current.done) {
+                return pre + 1
+            } else {
+                return pre
+            }
+        }, 0)
+
+        const total = todos.length
+
+       
+        return (
+            <div className="todo-footer">
+                <label>
+                    <input
+                        type="checkbox"
+                        checked={doneCount === total && total !== 0}
+                        onChange={this.checkAllTodo}
+                    />
+                </label>
+                <span>
+                    <span>已完成{ doneCount }</span> / 全部{ total }
+                </span>
+                <button
+                    className="btn btn-danger"
+                    onClick={this.handleClearAllDone}
+                >
+                    清除已经完成的任务
+                </button>
+            </div>
+        )
+    }
+}
+export default Footer
+
+```
+
+## 跨域
+
+是可以发送请求，但是无法接受请求
+
+```json
+proxy: "http://localhost:5000"
+```
+
+请求如果是自己域名有的数据会优先请求自己，如果自己没有的才会去请求传发的服务器数据
