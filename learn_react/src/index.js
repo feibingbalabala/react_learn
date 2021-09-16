@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom'
 import './index.css';
 import HelloWord from './components/helloWord/helloWord';
 import Card from './components/card/card'
@@ -9,24 +10,28 @@ import Context from './components/Context/Context'
 import Comment from './components/comment/index'
 import ThemeContext from './components/themeContext/index'
 import TodoList from './components/TodoList/Index';
+import ReactRouterDomDemo from './components/ReactRouterDom';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   // React.StrictMode和es5的严格模式不同，这是检查react用法是否符合最新的，比如有些弃用的api他就会提出警告
   <React.StrictMode>
-    <HelloWord />
-    <Card
-      name="jwy"
-      tel={18060031000}
-      sex={true}
-      tag={['a', 'b', 'c']}
-    />
-    <AddButton />
-    <Clock />
-    <Context />
-    <Comment />
-    <ThemeContext />
-    <TodoList />
+    <BrowserRouter>
+      <HelloWord />
+      <Card
+        name="jwy"
+        tel={18060031000}
+        sex={true}
+        tag={['a', 'b', 'c']}
+      />
+      <AddButton />
+      <Clock />
+      <Context />
+      <Comment />
+      <ThemeContext />
+      <TodoList />
+      <ReactRouterDomDemo />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

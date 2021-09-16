@@ -1,0 +1,14 @@
+.link_wrap {
+    padding: 10px;
+    text-align: center;
+}
+.link {
+    padding: 0 10px;
+}
+.content {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
