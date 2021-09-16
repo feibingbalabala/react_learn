@@ -534,3 +534,36 @@ proxy: "http://localhost:5000"
 ```
 
 请求如果是自己域名有的数据会优先请求自己，如果自己没有的才会去请求传发的服务器数据
+
+## react-router-dom
+
+注意：router有两种BrowserRouter和HashRouter
+
+```js
+import React from "react";
+import { Link, BrowserRouter, Route } from 'react-router-dom'
+import PageA from "./PageA";
+import PageB from "./PageB";
+import './index.css'
+
+class ReactRouterDomDemo extends React.Component {
+    render() {
+        return (
+            // 一套Link和route要放在一个BrowserRouter管理
+            <BrowserRouter>
+                <div className="link_wrap">
+                    <Link className="link" to="/pagea">PageA</Link>
+                    <Link className="link" to="/pageb">PageB</Link>
+                </div>
+                <div className="content">
+                    {/* 注册路由 */}
+                    <Route path="/pagea" component={PageA} />
+                    <Route path="/pageb" component={PageB} />
+                </div>
+            </BrowserRouter>
+        )
+    }
+}
+
+export default ReactRouterDomDemo
+```
