@@ -12,7 +12,7 @@ class Clock extends React.Component {
       this.setState({
         date: new Date()
       })
-    }, 3000)
+    }, 1000)
   }
   componentDidUpdate(currentProps, currentState) {
     // console.log(currentState)
