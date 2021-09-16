@@ -537,8 +537,10 @@ proxy: "http://localhost:5000"
 
 ## react-router-dom
 
-注意：router有两种BrowserRouter和HashRouter
+注意：
 
+1. router有两种BrowserRouter和HashRouter
+2. 需要点击高亮效果可以使用<NavLink actieClassName="" to="" />
 ```js
 import React from "react";
 import { Link, BrowserRouter, Route } from 'react-router-dom'
@@ -567,3 +569,26 @@ class ReactRouterDomDemo extends React.Component {
 
 export default ReactRouterDomDemo
 ```
+
+### 路由组件和一般组件
+
+1. 写法不同：
+
+```js
+// 一般组件
+<App />
+// 路由组件
+<Route path="/App" component={App} />
+```
+
+2. 存放位置不同：
+
+一般组件：在components
+
+路由组件：在pages
+
+3. 接收到props不同：
+
+一般组件：在写组件标签时传递什么，就能收到什么
+
+路由组件：接受三个固定的属性（history,location,match）

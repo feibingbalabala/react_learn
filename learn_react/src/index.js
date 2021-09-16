@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Link, Route } from 'react-router-dom'
 import './index.css';
 import HelloWord from './components/helloWord/helloWord';
-import Card from './components/card/card'
+// import Card from './components/card/card'
 import AddButton from './components/addButton/addButton';
 import Clock from './components/clock/clock'
 import Context from './components/Context/Context'
@@ -17,33 +17,33 @@ ReactDOM.render(
   // React.StrictMode和es5的严格模式不同，这是检查react用法是否符合最新的，比如有些弃用的api他就会提出警告
   <React.StrictMode>
     <BrowserRouter>
-    <p>
+    <div>
       <Link to="/helloword">HelloWord和循环</Link>
-    </p>
-    {/* <p>
+    </div>
+    {/* <div>
       <Link to="/helloword">props</Link>
-    </p> */}
-    <p>
+    </div> */}
+    <div>
       <Link to="/addbutton">事件点击</Link>
-    </p>
-    <p>
+    </div>
+    <div>
       <Link to="/clock">计时器</Link>
-    </p>
-    <p>
+    </div>
+    <div>
       <Link to="/context">表单输入</Link>
-    </p>
-    <p>
+    </div>
+    <div>
       <Link to="/comment">多组件信息交互</Link>
-    </p>
-    <p>
+    </div>
+    <div>
       <Link to="/themecontext">ThemeContext</Link>
-    </p>
-    <p>
+    </div>
+    <div>
       <Link to="/TodoList">TodoList</Link>
-    </p>
-    <p>
+    </div>
+    <div>
       <Link to="/ReactRouterDomDemo">ReactRouterDomDemo</Link>
-    </p>
+    </div>
       {/*
       <Card
         name="jwy"
