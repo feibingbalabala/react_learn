@@ -569,6 +569,29 @@ class ReactRouterDomDemo extends React.Component {
 
 export default ReactRouterDomDemo
 ```
+### 封装公共调用NavLink组件
+
+props里面有children属性和vue的插槽slot很像
+
+```js
+import React from "react";
+import { NavLink } from "react-router-dom";
+
+class MyNavLink extends React.Component {
+    render() {
+        return (
+            <NavLink
+                activeClassName="active"
+                className="item"
+                {...this.props}
+            />
+        )
+    }
+}
+
+export default MyNavLink
+
+```
 
 ### 路由组件和一般组件
 
