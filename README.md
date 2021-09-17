@@ -571,6 +571,12 @@ export default ReactRouterDomDemo
 ```
 ### 封装公共调用NavLink组件
 
+NavLink可以实现路由链接的高亮，通过activeClassName指定样式名
+
+标签体内容是一个特殊的标签属性
+
+通过this.props.children获取标签体内容
+
 props里面有children属性和vue的插槽slot很像
 
 ```js
@@ -591,6 +597,20 @@ class MyNavLink extends React.Component {
 
 export default MyNavLink
 
+```
+
+### Switch组件
+
+通常情况下，path和componet是一一对应的关系。
+
+Switch可以提高路由匹配效率（单一匹配，只显示第一个）。
+
+```js
+import { Switch, Route } from "react-router-dom"
+<Switch>
+    <Route path="/home" component={demo} />
+   <Route path="/home" component={demo1} />
+</Switch>
 ```
 
 ### 路由组件和一般组件
