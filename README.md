@@ -613,6 +613,15 @@ import { Switch, Route } from "react-router-dom"
 </Switch>
 ```
 
+### 路由的严格匹配与模糊匹配
+
+1. 默认使用的是模糊匹配
+2. 严格匹配不要随便开启，需要在打开，有些时候开启会导致无法匹配二级路由
+
+```js
+<Route exact={true} path="/my" component={My} />
+```
+
 ### 路由组件和一般组件
 
 1. 写法不同：
