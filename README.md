@@ -609,7 +609,7 @@ Switch可以提高路由匹配效率（单一匹配，只显示第一个）。
 import { Switch, Route } from "react-router-dom"
 <Switch>
     <Route path="/home" component={demo} />
-   <Route path="/home" component={demo1} />
+    <Route path="/home" component={demo1} />
 </Switch>
 ```
 
@@ -620,6 +620,19 @@ import { Switch, Route } from "react-router-dom"
 
 ```js
 <Route exact={true} path="/my" component={My} />
+```
+
+### redirect
+
+1. 写在所有路由注册的最下方，当所有路由都无法匹配的时候，跳转到redirect指定的路由
+
+```js
+import { Switch, Route, Redirect } from "react-router-dom"
+<Switch>
+    <Route path="/home" component={demo} />
+    <Route path="/home1" component={demo1} />
+    <Redirect to="/home">
+</Switch>
 ```
 
 ### 路由组件和一般组件
