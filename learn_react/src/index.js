@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Link, Route } from 'react-router-dom'
+import { BrowserRouter, Link, Route, Redirect } from 'react-router-dom'
 import './index.css';
 import HelloWord from './components/helloWord/helloWord';
 // import Card from './components/card/card'
@@ -11,6 +11,7 @@ import Comment from './components/comment/index'
 import ThemeContext from './components/themeContext/index'
 import TodoList from './components/TodoList/Index';
 import ReactRouterDomDemo from './components/ReactRouterDom';
+import SecondaryRouting from './components/SecondaryRouting'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -44,6 +45,9 @@ ReactDOM.render(
     <div>
       <Link to="/ReactRouterDomDemo">ReactRouterDomDemo</Link>
     </div>
+    <div>
+      <Link to="/SecondaryRouting">二级路由</Link>
+    </div>
       {/*
       <Card
         name="jwy"
@@ -63,6 +67,8 @@ ReactDOM.render(
       <Route path="/themecontext" component={ThemeContext} />
       <Route path="/TodoList" component={TodoList} />
       <Route path="/ReactRouterDomDemo" component={ReactRouterDomDemo} />
+      <Route path="/secondaryrouting" component={SecondaryRouting}/>
+      <Redirect to="/helloword" />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

@@ -618,8 +618,10 @@ import { Switch, Route } from "react-router-dom"
 1. 默认使用的是模糊匹配
 2. 严格匹配不要随便开启，需要在打开，有些时候开启会导致无法匹配二级路由
 
+
 ```js
 <Route exact={true} path="/my" component={My} />
+// 这种情况下无法匹配<Route path="/my/detail" component={Detail} />这样的二级路由
 ```
 
 ### redirect
