@@ -12,6 +12,7 @@ import ThemeContext from './components/themeContext/index'
 import TodoList from './components/TodoList/Index';
 import ReactRouterDomDemo from './components/ReactRouterDom';
 import SecondaryRouting from './components/SecondaryRouting'
+import RouterParams from './components/RouterParams';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -46,7 +47,10 @@ ReactDOM.render(
       <Link to="/ReactRouterDomDemo">ReactRouterDomDemo</Link>
     </div>
     <div>
-      <Link to="/SecondaryRouting">二级路由</Link>
+      <Link to="/secondaryrouting">二级路由</Link>
+    </div>
+    <div>
+      <Link to="/routerparams">路由中的params</Link>
     </div>
       {/*
       <Card
@@ -68,6 +72,7 @@ ReactDOM.render(
       <Route path="/TodoList" component={TodoList} />
       <Route path="/ReactRouterDomDemo" component={ReactRouterDomDemo} />
       <Route path="/secondaryrouting" component={SecondaryRouting}/>
+      <Route path="/routerparams" component={RouterParams} />
       <Redirect to="/helloword" />
     </BrowserRouter>
   </React.StrictMode>,
