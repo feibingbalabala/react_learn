@@ -659,3 +659,5 @@ import { Switch, Route, Redirect } from "react-router-dom"
 一般组件：在写组件标签时传递什么，就能收到什么
 
 路由组件：接受三个固定的属性（history,location,match）
+
+### 路由参数传递

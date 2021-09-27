@@ -13,6 +13,7 @@ import TodoList from './components/TodoList/Index';
 import ReactRouterDomDemo from './components/ReactRouterDom';
 import SecondaryRouting from './components/SecondaryRouting'
 import RouterParams from './components/RouterParams';
+import RouterSearch from './components/RouterSearch';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -52,6 +53,9 @@ ReactDOM.render(
     <div>
       <Link to="/routerparams">路由中的params</Link>
     </div>
+    <div>
+      <Link to="/routersearch">路由中的search（和query很像，在react中叫search）</Link>
+    </div>
       {/*
       <Card
         name="jwy"
@@ -59,21 +63,28 @@ ReactDOM.render(
         sex={true}
         tag={['a', 'b', 'c']}
       /> */}
-      <Route path="/helloword" component={HelloWord} />
-      {/* <Route
-        path="/helloword"
-        component={Card}
-      /> */}
-      <Route path="/addbutton" component={AddButton} />
-      <Route path="/clock" component={Clock} />
-      <Route path="/context" component={Context} />
-      <Route path="/comment" component={Comment} />
-      <Route path="/themecontext" component={ThemeContext} />
-      <Route path="/TodoList" component={TodoList} />
-      <Route path="/ReactRouterDomDemo" component={ReactRouterDomDemo} />
-      <Route path="/secondaryrouting" component={SecondaryRouting}/>
-      <Route path="/routerparams" component={RouterParams} />
-      <Redirect to="/helloword" />
+      <div style={{
+        padding: "10px",
+        border: "1px solid #ddd",
+        margin: "20px"
+      }}>
+        <Route path="/helloword" component={HelloWord} />
+        {/* <Route
+          path="/helloword"
+          component={Card}
+        /> */}
+        <Route path="/addbutton" component={AddButton} />
+        <Route path="/clock" component={Clock} />
+        <Route path="/context" component={Context} />
+        <Route path="/comment" component={Comment} />
+        <Route path="/themecontext" component={ThemeContext} />
+        <Route path="/TodoList" component={TodoList} />
+        <Route path="/ReactRouterDomDemo" component={ReactRouterDomDemo} />
+        <Route path="/secondaryrouting" component={SecondaryRouting}/>
+        <Route path="/routerparams" component={RouterParams} />
+        <Route path="/routersearch" component={RouterSearch} />
+        <Redirect to="/helloword" />
+      </div>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
