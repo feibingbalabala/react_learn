@@ -14,6 +14,7 @@ import ReactRouterDomDemo from './components/ReactRouterDom';
 import SecondaryRouting from './components/SecondaryRouting'
 import RouterParams from './components/RouterParams';
 import RouterSearch from './components/RouterSearch';
+import RouterState from './components/RouterState';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -56,6 +57,9 @@ ReactDOM.render(
     <div>
       <Link to="/routersearch">路由中的search（和query很像，在react中叫search）</Link>
     </div>
+    <div>
+      <Link to="/routerstate">路由中的state</Link>
+    </div>
       {/*
       <Card
         name="jwy"
@@ -83,6 +87,7 @@ ReactDOM.render(
         <Route path="/secondaryrouting" component={SecondaryRouting}/>
         <Route path="/routerparams" component={RouterParams} />
         <Route path="/routersearch" component={RouterSearch} />
+        <Route path="/routerstate" component={RouterState} />
         <Redirect to="/helloword" />
       </div>
     </BrowserRouter>

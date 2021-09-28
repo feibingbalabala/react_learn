@@ -2,7 +2,7 @@ import React from "react";
 import { Link, Route } from "react-router-dom";
 import Detail from "./Detail";
 
-class RouterSearch extends React.Component{
+class RouterState extends React.Component{
     state = {
         msgArr: [
             {
@@ -29,16 +29,22 @@ class RouterSearch extends React.Component{
                         msgArr.map((msgObj) => {
                             return (
                                 <li key={msgObj.id}>
-                                    {/* search传递 */}
-                                    <Link to={`/routersearch/detail?id=${msgObj.id}&title=${msgObj.title}`}>{ msgObj.title }</Link>
+                                    {/* state传递 */}
+                                    <Link to={{
+                                        pathname: "/routerstate/detail",
+                                        state: {
+                                            id: msgObj.id,
+                                            title: msgObj.title
+                                        }
+                                    }}>{ msgObj.title }</Link>
                                 </li>
                             )
                         })
                     }
                 </ul>
-                <Route path="/routersearch/detail" component={Detail} />
+                <Route path="/routerstate/detail" component={Detail} />
             </div>
         )
     }
 }
-export default RouterSearch
+export default RouterState

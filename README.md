@@ -661,3 +661,43 @@ import { Switch, Route, Redirect } from "react-router-dom"
 路由组件：接受三个固定的属性（history,location,match）
 
 ### 路由参数传递
+
+params参数
+
+```js
+    // 路由链接（携带参数）：
+    <Link to="/demo/12">详情</Link>
+    // 注册路由（申明接收）：
+    <Route path="/demo/:id" component={demo} />
+    // 接收参数：
+    const { id } = this.props.match.params
+```
+
+search参数（也可以理解成query，在react叫search）
+
+```js
+    // 路由链接（携带参数）：
+    <Link to="/demo?id=12">详情</Link>
+    // 注册路由（无需申明，正常祖册）：
+    <Route path="/demo" component={demo} />
+    // 接收参数：
+    this.props.location.search
+    // 备注：获取到的search是urlencoded编码字符串，需要借助querystring解析
+```
+
+state参数
+
+```js
+    // 路由链接（携带参数）：
+    <Link to={{
+        pathname: "/routerstate/detail",
+        state: {
+            id: 12
+        }
+    }}>详情</Link>
+    // 注册路由（无需申明，正常祖册）：
+    <Route path="/demo" component={demo} />
+    // 接收参数：
+    this.props.location.location.state
+    // 备注：刷新也可以保留参数，存储在浏览器的histroy对象里面，清空缓存就失效了
+```
