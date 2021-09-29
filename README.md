@@ -648,7 +648,7 @@ import { Switch, Route, Redirect } from "react-router-dom"
 <Route path="/App" component={App} />
 ```
 
-2. 存放位置不同：
+2. 存放位置不同(文件夹)：
 
 一般组件：在components
 
@@ -659,6 +659,24 @@ import { Switch, Route, Redirect } from "react-router-dom"
 一般组件：在写组件标签时传递什么，就能收到什么
 
 路由组件：接受三个固定的属性（history,location,match）
+
+<b>widthRouter</b>
+
+可以加工一般组件，让一般组件具备路由组件所特有的api，返回一个新的组件
+
+```js
+import React from "react"
+import { widthRouter } from "react-router-dom"
+
+class demo extends React.Component {
+    render() {
+        return ()
+    }
+}
+
+export default widthRouter(demo)
+
+```
 
 ### 路由参数传递
 
