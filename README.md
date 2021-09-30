@@ -719,3 +719,10 @@ state参数
     this.props.location.location.state
     // 备注：刷新也可以保留参数，存储在浏览器的histroy对象里面，清空缓存就失效了
 ```
+
+### BrowerRouter和HashRouter的区别
+
+1. 底层原理不同：BrowerRouter使用的是h5的history api，不兼容ie9以下浏览器，HashRouter使用的是url的哈希值。
+2. url表现形式不一样：BrowerRouter路径没有#，HashRouter的路径包含#。
+3. 刷新对路由中state的印象：BrowerRouter没影响，因为存在history之中；HashRouter会导致路由state参数丢失。
+4. 备注：HashRouter可以用来解决一些路径错误相关的问题
