@@ -15,6 +15,7 @@ import SecondaryRouting from './components/SecondaryRouting'
 import RouterParams from './components/RouterParams';
 import RouterSearch from './components/RouterSearch';
 import RouterState from './components/RouterState';
+import Count from './components/Count';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -60,6 +61,9 @@ ReactDOM.render(
     <div>
       <Link to="/routerstate">路由中的state</Link>
     </div>
+    <div>
+      <Link to="/count">纯react版本count实现</Link>
+    </div>
       {/*
       <Card
         name="jwy"
@@ -88,6 +92,7 @@ ReactDOM.render(
         <Route path="/routerparams" component={RouterParams} />
         <Route path="/routersearch" component={RouterSearch} />
         <Route path="/routerstate" component={RouterState} />
+        <Route path="/count" component={Count} />
         <Redirect to="/helloword" />
       </div>
     </BrowserRouter>
