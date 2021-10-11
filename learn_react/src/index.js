@@ -16,6 +16,7 @@ import RouterParams from './components/RouterParams';
 import RouterSearch from './components/RouterSearch';
 import RouterState from './components/RouterState';
 import Count from './components/Count';
+import CountForRedux from './components/CountForRedux';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -64,6 +65,9 @@ ReactDOM.render(
     <div>
       <Link to="/count">纯react版本count实现</Link>
     </div>
+    <div>
+      <Link to="/countforredux">redux版本count实现</Link>
+    </div>
       {/*
       <Card
         name="jwy"
@@ -93,6 +97,7 @@ ReactDOM.render(
         <Route path="/routersearch" component={RouterSearch} />
         <Route path="/routerstate" component={RouterState} />
         <Route path="/count" component={Count} />
+        <Route path="/countforredux" component={CountForRedux} />
         <Redirect to="/helloword" />
       </div>
     </BrowserRouter>
