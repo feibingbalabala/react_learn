@@ -752,3 +752,22 @@ const stroe = createStore(reducer)
 ```
 
 3. 对象的功能: getState()得到state。dispatch(action)分发action，触发reducer调用，产生新的state。subscribe(listener)注册监听，产生新的state时自动调用。
+
+### 异步action
+
+异步action，就是指action的值为函数，异步action中一般都会调用同步action，异步action不是需要用的
+
+添加中间件并在store中配置
+
+```js
+npm install redux-thunk
+
+// store.js
+
+import { createStore, applyMiddleware } from "redux"
+import countReducer from "./count_reducer"
+import thunk from 'redux-thunk'
+export default createStore(countReducer, applyMiddleware(thunk))
+```
+
+异步任务执行有结果后，分发给同的action去执行真正的操作。
