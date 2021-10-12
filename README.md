@@ -771,3 +771,11 @@ export default createStore(countReducer, applyMiddleware(thunk))
 ```
 
 异步任务执行有结果后，分发给同的action去执行真正的操作。
+
+## react-redux
+
+1. 所有的ui组件都应该包裹在一个容器里面，他们是父子组件。
+2. 容器组件是真正和redux大交道的，里面可以随意的使用redux的api。
+3. ui组件不能使用任何redux的api。
+4. 容器组件会传给ui组件：1、redux中所保存的状态。2、用于操作状态的方法。
+5. 备注：容器给ui传递：状态、操作状态的方法，均通过props传递。
