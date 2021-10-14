@@ -779,3 +779,5 @@ export default createStore(countReducer, applyMiddleware(thunk))
 3. ui组件不能使用任何redux的api。
 4. 容器组件会传给ui组件：1、redux中所保存的状态。2、用于操作状态的方法。
 5. 备注：容器给ui传递：状态、操作状态的方法，均通过props传递。
+
+tip: CountForReactRedux可以查看这个组件
