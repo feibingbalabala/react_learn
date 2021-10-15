@@ -26,5 +26,14 @@ function mapDispatchToProps(dispatch) {
     }
 }
 const CountContainer = connect(mapStateToProps, mapDispatchToProps)(CountUi)
-
+// 方法2
+// const CountContainer = connect(
+//     state => ({
+//         count: state
+//     }), {
+//         jia: createIncrementAction,
+//         jian: createDecrementAction,
+//         jiaAsgnc: createIncrementAsyncAction
+//     }
+// )(CountUi)
 export default CountContainer

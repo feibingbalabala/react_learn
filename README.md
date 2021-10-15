@@ -774,10 +774,11 @@ export default createStore(countReducer, applyMiddleware(thunk))
 
 ## react-redux
 
-1. 所有的ui组件都应该包裹在一个容器里面，他们是父子组件。
-2. 容器组件是真正和redux大交道的，里面可以随意的使用redux的api。
+1. 所有的ui组件都应该包裹在一个容器里面，他们是父子组件。ui组件中不能使用任何redux的api，只负责页面的呈现和交互。
+2. 容器组件是真正和redux大交道的，里面可以随意的使用redux的api，将结果交给ui组件。
 3. ui组件不能使用任何redux的api。
 4. 容器组件会传给ui组件：1、redux中所保存的状态。2、用于操作状态的方法。
 5. 备注：容器给ui传递：状态、操作状态的方法，均通过props传递。
+6. mapStateToProps：映射状态，返回值是一个对象，mapDispatchToProps：映射操作状态的方法，返回值是一个对象。
 
 tip: CountForReactRedux可以查看这个组件
