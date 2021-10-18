@@ -782,3 +782,11 @@ export default createStore(countReducer, applyMiddleware(thunk))
 6. mapStateToProps：映射状态，返回值是一个对象，mapDispatchToProps：映射操作状态的方法，返回值是一个对象。
 
 tip: CountForReactRedux可以查看这个组件
+
+### 优化思路
+
+1. 容器组件可以和ui组件整合成一个文件。
+2. 无需自己给组件传递store，给<App />包裹一个<Provider store={store}>即可。
+3. 使用了react-redux后再也不用自己检测redux中的状态的改变了，容器组件可以自动完成这个工作。
+4. mapDispatchToProps也可以简单的写成一个对象。
+5. 一个组件要和redux“交互”：定义ui组件-不暴露；引入connect生成一个容器组件，并暴露；在ui组件中通过this.props.xx读取和操作状态
