@@ -790,3 +790,20 @@ tip: CountForReactRedux可以查看这个组件
 3. 使用了react-redux后再也不用自己检测redux中的状态的改变了，容器组件可以自动完成这个工作。
 4. mapDispatchToProps也可以简单的写成一个对象。
 5. 一个组件要和redux“交互”：定义ui组件-不暴露；引入connect生成一个容器组件，并暴露；在ui组件中通过this.props.xx读取和操作状态
+
+ ## setState更新状态的两种方式
+ 
+ 1. setState(stateChange, [callback])--对象式的setState，stateChange为状态改变对象，callback是可选的回调函数，他在状态更新完毕、界面也更新后（render调用后）才被调用。
+ 2. setState(updater, [callback])--函数式的setState，updater为状态改变对象的函数，updater可以接收到state和props，callback是可选的回调函数，他在状态更新完毕、界面也更新后（render调用后）才被调用。
+
+ ```js
+ this.setState((state, props) => {
+     ...
+ })
+ ```
+
+对象式是函数式的简写语法唐，使用原则
+
+1. 如果新状态不依赖原状态-使用对象
+2. 如果新状态依赖原状态-使用函数
+3. 如果需要在setState()执行后获取最新的状态数据（react数据更新是异步的），使用callback
