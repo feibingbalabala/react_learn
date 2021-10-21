@@ -807,3 +807,25 @@ tip: CountForReactRedux可以查看这个组件
 1. 如果新状态不依赖原状态-使用对象
 2. 如果新状态依赖原状态-使用函数
 3. 如果需要在setState()执行后获取最新的状态数据（react数据更新是异步的），使用callback
+
+## hook
+
+可以在函数式组件中使用state（函数式组件没有this，不能使用react的生命周期，能使用props）只能定义简单的组件
+
+```js
+function demo() {
+    return '<div>一个函数式组件</div>'
+}
+```
+
+### 三个常用的hook
+
+1. state Hook: React.useState()
+2. effect Hook: React.useEffect()
+3. ref Hook: React.useRef()
+
+### stateHook
+
+1. state Hook让函数式组件也可以有state状态，并进行状态数据的读写操作。
+2. 语法 const [xxx, setXxx] = React.useState(initValue)。
+3. 参数：第一次初始化指定在内部作缓存，返回值：包含两个元素的数组，第一个为当前状态的值，第二个为更新状态的函数。

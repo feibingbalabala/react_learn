@@ -18,6 +18,7 @@ import RouterState from './components/RouterState';
 import Count from './components/Count';
 import CountForRedux from './components/CountForRedux';
 import CountForReactRedux from './components/CountForReactRedux/index';
+import CountForHook from './components/CountForHook';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -72,6 +73,9 @@ ReactDOM.render(
     <div>
       <Link to="/countforreactredux">react-redux版本count实现</Link>
     </div>
+    <div>
+      <Link to="/countforhook">CountForHook</Link>
+    </div>
       {/*
       <Card
         name="jwy"
@@ -103,6 +107,7 @@ ReactDOM.render(
         <Route path="/count" component={Count} />
         <Route path="/countforredux" component={CountForRedux} />
         <Route path="/countforreactredux" component={CountForReactRedux} />
+        <Route path="/countforhook" component={CountForHook} />
         <Redirect to="/helloword" />
       </div>
     </BrowserRouter>
