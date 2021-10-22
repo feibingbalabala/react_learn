@@ -829,3 +829,33 @@ function demo() {
 1. state Hook让函数式组件也可以有state状态，并进行状态数据的读写操作。
 2. 语法 const [xxx, setXxx] = React.useState(initValue)。
 3. 参数：第一次初始化指定在内部作缓存，返回值：包含两个元素的数组，第一个为当前状态的值，第二个为更新状态的函数。
+
+### effectHook
+
+1. effectHook可以在任何函数组件中执行副作用操作（用于模拟类组件中生命周期）
+2. react中的副作用：发ajax请求、设置订阅/启动计时器、手动更改真实的dom
+3. 语法
+
+```js
+useEffect(() => {
+    // 在这执行任何副作用操作
+    return () => { // 在组件卸载前执行
+        // 在这做一些收尾工作，比如清除定时器，取消订阅等。
+    }
+}, [stateValue]) // 如果指定的是[],回调函数只会在第一次render()后执行，如果里面有参数则会监测state中的值类似vue中的watch
+```
+
+4. 可以把useEffect hook看成componentDidMount(),componentDidUpdate(),componentDillUnmount()这三个函数的集合
+
+```js
+// componentDidMount()和componentDidUpdate()
+useEffect(() => {
+    
+})
+// componentDillUnmount()有返回值 
+useEffect(() => {
+    return () => {
+
+    }
+}, [])
+```
