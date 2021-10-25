@@ -9,6 +9,8 @@ import ReactDOM from "react-dom";
 //         name: 'jwy'
 //     }
 
+//     myref = React.createRef();
+
 //     componentDidMount() {
 //         this.timer = setInterval(() => {
 //             this.setState({count: this.state.count + 1})
@@ -37,6 +39,10 @@ import ReactDOM from "react-dom";
 //         }
 //     }
 
+//     show = () => {
+//         alert(this.myref.current.value);
+//     }
+
 //     unmount = () => {
 //         ReactDOM.unmountComponentAtNode(document.getElementById('root'))
 //     }
@@ -44,12 +50,15 @@ import ReactDOM from "react-dom";
 //     render() {
 //         return (
 //             <div>
+//                 <h1>类式组件</h1>
+//                 <input type="text" ref={this.myref} />
 //                 <div>{ this.state.count }</div>
 //                 <div>{ this.state.name }</div>
 //                 <div>
 //                     <button onClick={this.add}>add</button>
 //                     <button onClick={this.changeName}>changeName</button>
 //                     <button onClick={this.unmount}>卸载组件</button>
+//                     <button onClick={this.show}>点击提示数据</button>
 //                 </div>
 //             </div>
 //         )
@@ -62,6 +71,7 @@ function CountForHook() {
     
     const [count, setCount] = React.useState(0)
     const [name, setName] = React.useState('jwy')
+    const myref = React.useRef()
 
     React.useEffect(() => {
         let timer = setInterval(() => {
@@ -91,14 +101,21 @@ function CountForHook() {
         ReactDOM.unmountComponentAtNode(document.getElementById('root'))
     }
 
+    function show () {
+        alert(myref.current.value)
+    }
+
     return (
         <div>
+            <h1>函数式组件</h1>
+            <input type="text" ref={myref} />
             <div>{ count }</div>
             <div>{ name }</div>
             <div>
                 <button onClick={add}>add</button>
                 <button onClick={changeName}>changeName</button>
                 <button onClick={unmount}>卸载组件</button>
+                <button onClick={show}>点击提示数据</button>
             </div>
         </div>
     )

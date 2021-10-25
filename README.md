@@ -859,3 +859,9 @@ useEffect(() => {
     }
 }, [])
 ```
+
+### refHook
+
+1. ref hook可以在函数组件中存储/茶皂组件内的变迁或任意其他的数据
+2. 语法 const refContainer = useRef()
+3. 作用：保存标签对象，功能与ref.createRef()一样
