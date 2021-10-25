@@ -865,3 +865,31 @@ useEffect(() => {
 1. ref hook可以在函数组件中存储/茶皂组件内的变迁或任意其他的数据
 2. 语法 const refContainer = useRef()
 3. 作用：保存标签对象，功能与ref.createRef()一样
+
+## Fragment
+
+和template很像，Fragment包裹后，这样就可以不渲染外层的标签，Fragment只有key一个属性，不能使用其他属性。
+
+```js
+import React ,{ Fragment } from "react";
+
+class Demo extends React.component{
+    render() {
+        return (
+            <Fragment key={key}>
+                <input type="text" />
+            </Fragment>
+        )
+    }
+}
+// tip，麻烦又没有key的需求
+class Demo1 extends React.component{
+    render() {
+        return (
+            <>
+                <input type="text" />
+            </>
+        )
+    }
+}
+```
