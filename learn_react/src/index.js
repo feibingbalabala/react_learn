@@ -6,7 +6,7 @@ import HelloWord from './components/helloWord/helloWord';
 // import Card from './components/card/card'
 import AddButton from './components/addButton/addButton';
 import Clock from './components/clock/clock'
-import Context from './components/Context/Context'
+import FormInput from './components/FormInput/index'
 import Comment from './components/comment/index'
 import ThemeContext from './components/themeContext/index'
 import TodoList from './components/TodoList/Index';
@@ -19,6 +19,7 @@ import Count from './components/Count';
 import CountForRedux from './components/CountForRedux';
 import CountForReactRedux from './components/CountForReactRedux/index';
 import CountForHook from './components/CountForHook';
+import Context from './components/Context/index'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -38,7 +39,7 @@ ReactDOM.render(
       <Link to="/clock">计时器</Link>
     </div>
     <div>
-      <Link to="/context">表单输入</Link>
+      <Link to="/forminput">表单输入</Link>
     </div>
     <div>
       <Link to="/comment">多组件信息交互</Link>
@@ -76,6 +77,9 @@ ReactDOM.render(
     <div>
       <Link to="/countforhook">CountForHook</Link>
     </div>
+    <div>
+      <Link to="/context">Context组件通信</Link>
+    </div>
       {/*
       <Card
         name="jwy"
@@ -95,7 +99,7 @@ ReactDOM.render(
         /> */}
         <Route path="/addbutton" component={AddButton} />
         <Route path="/clock" component={Clock} />
-        <Route path="/context" component={Context} />
+        <Route path="/forminput" component={FormInput} />
         <Route path="/comment" component={Comment} />
         <Route path="/themecontext" component={ThemeContext} />
         <Route path="/TodoList" component={TodoList} />
@@ -108,6 +112,7 @@ ReactDOM.render(
         <Route path="/countforredux" component={CountForRedux} />
         <Route path="/countforreactredux" component={CountForReactRedux} />
         <Route path="/countforhook" component={CountForHook} />
+        <Route path="/context" component={Context} />
         <Redirect to="/helloword" />
       </div>
     </BrowserRouter>

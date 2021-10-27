@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Context extends React.Component {
+class FormInput extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -39,4 +39,4 @@ class Context extends React.Component {
   }
 }
 
-export default Context
+export default FormInput

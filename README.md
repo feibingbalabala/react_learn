@@ -893,3 +893,40 @@ class Demo1 extends React.component{
     }
 }
 ```
+
+### context组件交互
+
+1. 创建context组件
+
+```js
+    const XxxContext = React.createContext();
+```
+
+2. 渲染子组件时，外层包裹XxxContext.provider，通过value属性传递数据
+
+```js
+    <XxxContext.provider>
+        子组件
+    </XxxContext.provider>
+```
+
+3. 后代组件数据的读取
+
+```js
+// 方法1：适用于类式组件
+    static contextType = XxxContext; // 声明接收context
+    this.context // 读取context的value的数据
+// 方法2：适用于函数式组件
+    <XxxContext.Consumer>
+        {
+            (value) => {
+                // value就是context的value数据
+                return (要显示的数据)
+            }
+        }
+    </XxxContext.Consumer>
+```
+
+4. tip
+
+在应用开发中一般不使用context，一般都用他的封装react插件

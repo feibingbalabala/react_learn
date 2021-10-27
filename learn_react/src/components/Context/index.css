@@ -1,0 +1,15 @@
+.parent {
+    width: 500px;
+    background-color: red;
+    padding: 10px;
+}
+.child {
+    /* width: 100%; */
+    background-color: skyblue;
+    padding: 10px;
+}
+.grade {
+    /* width: 100%; */
+    background-color: slategray;
+    padding: 10px;
+}
