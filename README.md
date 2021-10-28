@@ -930,3 +930,19 @@ class Demo1 extends React.component{
 4. tip
 
 在应用开发中一般不使用context，一般都用他的封装react插件
+
+## 组件优化
+
+component有两个问题
+
+1. 只要执行setState()即使不改变状态数据，组件也会宠幸render()
+2. 只要当前组件重新render(),就会自动更新子组件的render()，效率就变低了
+
+解决方法
+
+1. 重写shouldComponentUpdate()方法，比较新旧state或props数据，如果有变化就返回true,没有变化方会false。
+2. 使用pureComponent，pureComponent重写sholdComponentUpdate(),只有state或props数据有变化才返回true
+
+注意
+
+只是进行state和props的浅对比，如果数据对象的内存数据变了,返回false，不要直接修改state数据，例如数组操作，需要产生新数据，项目之中一般使用pureComponent来优化。
