@@ -946,3 +946,67 @@ component有两个问题
 注意
 
 只是进行state和props的浅对比，如果数据对象的内存数据变了,返回false，不要直接修改state数据，例如数组操作，需要产生新数据，项目之中一般使用pureComponent来优化。
+
+## renderProps
+
+类似vue的插槽
+
+React中：
+
+1. 使用children props: 通过组件标签体传入结构
+
+```js
+ <A>
+    <B>xxx</B>
+ </A>
+//  在B组件中
+<div>{this.prop.children}</div>
+```
+
+2. 通过render props: 通过组件标签属性传入结构，可以携带数据，一般用render函数属性
+
+
+```js
+// 案例中A爷爷B父亲C孩子组件。
+import React from 'react'
+
+export default class A extends React.component {
+    render() {
+        return (
+            <div>
+                <div>这里是A组件</div>
+                <B render={(name) => <C name={name} />} />
+            </div>
+        )
+    }
+}
+
+class B extends React.component {
+    state = {
+        name: 'B'
+    }
+    render() {
+        const { name } = this.state
+        return (
+            <div>
+                <div>这里是B组件</div>
+                { this.props.render(name) }
+            </div>
+        )
+    }
+}
+
+class C extends React.component {
+    state = {
+        name: 'C'
+    }
+    render() {
+        const { name } = this.state
+        return (
+            <div>
+                <div>这里是C组件</div>
+            </div>
+        )
+    }
+}
+```
