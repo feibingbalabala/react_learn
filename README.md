@@ -1010,3 +1010,25 @@ class C extends React.component {
     }
 }
 ```
+
+## 错误边界
+
+错误边界（ERROR BOUNDARY）用来捕获后代组件错误，渲染出备用页面。
+
+特点
+
+只能捕获后代组件生命周期产生的错误，不能捕获自己组件场所的错误和其他组件在合成时间、定时器时间场所的错误
+
+使用法法
+
+```js
+static getDerivedStateFrinError(error) {
+    console.log(error)
+    // render之前触发
+    // 返回新的state
+    return {
+        hasError: true
+    }
+}
+
+```
