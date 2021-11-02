@@ -1032,3 +1032,21 @@ static getDerivedStateFrinError(error) {
 }
 
 ```
+
+## 组件通信方式
+
+组件间的关系：父子组件、兄弟组件、祖孙组件。
+
+props: children props和render props
+
+消息订阅和发布：pubs-sub
+
+集中式状态管理：redux
+
+context：provider
+
+父子组件：props
+
+兄弟组件：消息订阅方式或者集中式状态管理
+
+祖孙组件：消息订阅方式或者集中式状态管理
